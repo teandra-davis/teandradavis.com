@@ -2,6 +2,7 @@
 const express = require('express');
 //EJS Package
 const ejs = require('ejs');
+const path = require('path'); // Import the path module
 
 //App Creation
 const app = express();

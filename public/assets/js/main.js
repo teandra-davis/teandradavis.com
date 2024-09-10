@@ -1,9 +1,5 @@
 /**
-* Template Name: MyResume
-* Updated: Mar 10 2024 with Bootstrap v5.3.3
-* Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
+* 
 */
 (function() {
   "use strict";
@@ -265,6 +261,34 @@
       type: 'bullets',
       clickable: true
     }
+  });
+
+  /**
+   * Under constructions pop up box
+   */
+
+  const showPopup = () => {
+    const modalContent = `
+      <div id="constructionModal" style="position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); 
+        background: white; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); border-radius: 10px; z-index: 9999;">
+        <h2 style="font-family: 'Poppins', sans-serif; color: #333;">🚧 Pardon the Dust! 🚧</h2>
+        <p style="font-family: 'Raleway', sans-serif; color: #666;">This site is a work in progress. We're crafting something special, so stay tuned for more updates! 💡</p>
+        <button id="closeModal" style="background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Got it!</button>
+      </div>
+      <div id="modalBackdrop" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 9998;"></div>
+    `;
+
+    document.body.insertAdjacentHTML('beforeend', modalContent);
+
+    document.getElementById("closeModal").addEventListener("click", function() {
+      document.getElementById("constructionModal").remove();
+      document.getElementById("modalBackdrop").remove();
+    });
+  };
+
+  // Run the popup after page load
+  window.addEventListener('load', () => {
+    showPopup();
   });
 
   /**
